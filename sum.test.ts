@@ -19,7 +19,7 @@ describe("sum", () => {
     expect(window.sum(2, 3)).toBe(5);
   });
 
-  it("adds negative and positive numbers", () => {
+  it("adds negative numbers and positive numbers", () => {
     expect(window.sum(-1, 1)).toBe(0);
   });
 
