@@ -1,26 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum Two Numbers :) </title>
-</head>
-<body>
-  <h1>Sum Two Int Numbers =) </h1>
-  <input type="number" id="num1" placeholder="First number" />
-  <span> + </span>
-  <input type="number" id="num2" placeholder="Second number" />
-  <button type="button" id="btnSum">Sum</button>
-  <p>Result: <strong id="result">—</strong></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h1>Calculator</h1>
 
-  <!-- Link to the compiled JS (compile sum.ts with: tsc sum.ts) -->
-  <script src="sum.js"></script>
-  <script>
-    document.getElementById('btnSum').addEventListener('click', function () {
-      var a = Number(document.getElementById('num1').value) || 0;
-      var b = Number(document.getElementById('num2').value) || 0;
-      document.getElementById('result').textContent = sum(a, b);
-    });
-  </script>
-</body>
+    <!-- Sum Operation -->
+    <div>
+      <h2>Sum</h2>
+      <input type="number" id="num1Sum" placeholder="First number" />
+      <span> + </span>
+      <input type="number" id="num2Sum" placeholder="Second number" />
+      <button type="button" id="btnSum">Sum</button>
+      <p>Result: <strong id="resultSum">—</strong></p>
+    </div>
+
+    <!-- Subtract Operation -->
+    <div>
+      <h2>Subtract</h2>
+      <input type="number" id="num1Sub" placeholder="First number" />
+      <span> - </span>
+      <input type="number" id="num2Sub" placeholder="Second number" />
+      <button type="button" id="btnSub">Subtract</button>
+      <p>Result: <strong id="resultSub">—</strong></p>
+    </div>
+
+    <!-- Multiply Operation -->
+    <div>
+      <h2>Multiply</h2>
+      <input type="number" id="num1Mul" placeholder="First number" />
+      <span> × </span>
+      <input type="number" id="num2Mul" placeholder="Second number" />
+      <button type="button" id="btnMul">Multiply</button>
+      <p>Result: <strong id="resultMul">—</strong></p>
+    </div>
+
+    <!-- Divide Operation -->
+    <div>
+      <h2>Divide</h2>
+      <input type="number" id="num1Div" placeholder="First number" />
+      <span> ÷ </span>
+      <input type="number" id="num2Div" placeholder="Second number" />
+      <button type="button" id="btnDiv">Divide</button>
+      <p>Result: <strong id="resultDiv">—</strong></p>
+    </div>
+
+    <!-- Link to the compiled JS files -->
+    <script src="sum.js"></script>
+    <script src="subtract.js"></script>
+    <script src="multiply.js"></script>
+    <script src="divide.js"></script>
+
+    <script>
+      // Sum operation
+      document.getElementById("btnSum").addEventListener("click", function () {
+        var a = Number(document.getElementById("num1Sum").value) || 0;
+        var b = Number(document.getElementById("num2Sum").value) || 0;
+        document.getElementById("resultSum").textContent = window.sum(a, b);
+      });
+
+      // Subtract operation
+      document.getElementById("btnSub").addEventListener("click", function () {
+        var a = Number(document.getElementById("num1Sub").value) || 0;
+        var b = Number(document.getElementById("num2Sub").value) || 0;
+        document.getElementById("resultSub").textContent = window.subtract(
+          a,
+          b,
+        );
+      });
+
+      // Multiply operation
+      document.getElementById("btnMul").addEventListener("click", function () {
+        var a = Number(document.getElementById("num1Mul").value) || 0;
+        var b = Number(document.getElementById("num2Mul").value) || 0;
+        document.getElementById("resultMul").textContent = window.multiply(
+          a,
+          b,
+        );
+      });
+
+      // Divide operation
+      document.getElementById("btnDiv").addEventListener("click", function () {
+        try {
+          var a = Number(document.getElementById("num1Div").value) || 0;
+          var b = Number(document.getElementById("num2Div").value) || 0;
+          document.getElementById("resultDiv").textContent = window.divide(
+            a,
+            b,
+          );
+        } catch (error) {
+          document.getElementById("resultDiv").textContent = error.message;
+        }
+      });
+    </script>
+  </body>
 </html>
